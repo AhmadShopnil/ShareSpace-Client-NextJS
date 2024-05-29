@@ -1,6 +1,5 @@
 "use client";
 
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -9,15 +8,15 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
-import { ButtonGroup, Divider } from "@mui/material";
 import AuthButton from "@/components/Ui/AuthButton/AuthButton";
+import Link from "next/link";
 
-const pages = ["Products", "Pricing", "Blog"];
+// menu item
+const pages = ["Home", "About", "Contact", "Dashboard"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
@@ -133,6 +132,8 @@ const Navbar = () => {
             {pages.map((page) => (
               <Typography
                 key={page}
+                component={Link}
+                href={`/${page.toLowerCase()}`}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 1, display: "block" }}
               >

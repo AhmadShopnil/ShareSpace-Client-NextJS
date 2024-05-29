@@ -16,7 +16,7 @@ const SingleFlat = async ({ params }: { params: any }) => {
       }}
     >
       <h1>{flatId}</h1>
-      <PhotoGallery flatDetails={flatDetails}></PhotoGallery>
+      <PhotoGallery></PhotoGallery>
       <RelatedFlats></RelatedFlats>
       <Content flatDetails={flatDetails}></Content>
     </Container>
