@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
 import { ButtonGroup, Divider } from "@mui/material";
+import AuthButton from "@/components/Ui/AuthButton/AuthButton";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -140,16 +141,7 @@ const Navbar = () => {
             ))}
           </Box>
 
-          <Box>
-            <ButtonGroup
-              variant="text"
-              color="secondary"
-              aria-label="Basic button group"
-            >
-              <Button>Login</Button>
-              <Button>SignUp</Button>
-            </ButtonGroup>
-          </Box>
+          <AuthButton></AuthButton>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

@@ -1,4 +1,4 @@
-const Content = () => {
+const Content = ({ flatDetails }) => {
   return <div>Details</div>;
 };
 
