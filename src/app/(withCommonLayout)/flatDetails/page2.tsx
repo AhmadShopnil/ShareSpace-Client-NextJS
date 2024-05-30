@@ -13,7 +13,7 @@ const FlatDetails = () => {
     >
       <PhotoGallery></PhotoGallery>
       <RelatedFlats></RelatedFlats>
-      <Content></Content>
+      {/* <Content></Content> */}
     </Container>
   );
 };

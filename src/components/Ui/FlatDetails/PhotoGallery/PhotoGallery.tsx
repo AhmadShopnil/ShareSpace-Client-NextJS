@@ -16,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export const PhotoGallery = ({ flatDetails = { flatDetails } }) => {
+export const PhotoGallery = () => {
   return (
     <Box sx={{ minHeight: 253 }}>
       <Masonry columns={{ xs: 3, sm: 3 }} spacing={2}>
