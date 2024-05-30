@@ -6,9 +6,9 @@ import { Container } from "@mui/material";
 
 const SingleFlat = async ({ params }: { params: any }) => {
   const flatId = params.singleFlat;
-  //   const res = await fetch(`http://localhost:5000/api/v1/flatDetails/${flatId}`);
-  //   const { data: flatDetails } = await res.json();
-  const flatDetails = {};
+  const res = await fetch(`http://localhost:3000/api/flats/${flatId}`);
+  const data = await res.json();
+  console.log("data-", data);
   return (
     <Container
       sx={{
@@ -18,7 +18,7 @@ const SingleFlat = async ({ params }: { params: any }) => {
       <h1>{flatId}</h1>
       <PhotoGallery></PhotoGallery>
       <RelatedFlats></RelatedFlats>
-      <Content flatDetails={flatDetails}></Content>
+      {/* <Content flatDetails={data?.result}></Content> */}
     </Container>
   );
 };

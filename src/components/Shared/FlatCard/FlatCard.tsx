@@ -7,7 +7,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
-const FlatCard = () => {
+const FlatCard = ({ flat }: { flat: any }) => {
+  console.log(flat);
+  const { description, id, squareFeet, totalRooms } = flat;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -20,12 +22,11 @@ const FlatCard = () => {
           Lizard
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Typography component={Link} href={`/flatDetails/1`}>
+        <Typography component={Link} href={`/flatDetails/${id}`}>
           <Button size="small">Learn More</Button>
         </Typography>
       </CardActions>

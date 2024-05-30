@@ -8,7 +8,12 @@ import {
   CardContent,
 } from "@mui/material";
 
-const AllFlat = () => {
+const AllFlat = async () => {
+  const res = await fetch("http://localhost:3000/api/flats");
+  const data = await res.json();
+
+  const flats = data?.result?.data;
+
   return (
     <Container maxWidth="lg" sx={{ my: 20 }}>
       <Typography variant="h4" component="h2" align="center" gutterBottom>
@@ -25,9 +30,9 @@ const AllFlat = () => {
         />
       </Box>
       <Grid container spacing={4}>
-        {Array.from({ length: 4 }).map((_, index) => (
+        {flats?.map((flat: any, index: number) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
-            <FlatCard></FlatCard>
+            <FlatCard flat={flat}></FlatCard>
           </Grid>
         ))}
       </Grid>
