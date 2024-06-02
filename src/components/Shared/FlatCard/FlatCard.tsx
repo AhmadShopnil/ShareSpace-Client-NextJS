@@ -6,10 +6,19 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { TFlat } from "@/types/common";
 
-const FlatCard = ({ flat }: { flat: any }) => {
+const FlatCard = ({ flat }: { flat: TFlat }) => {
   console.log(flat);
-  const { description, id, squareFeet, totalRooms } = flat;
+  const {
+    description,
+    id,
+    squareFeet,
+    totalRooms,
+    advanceAmount,
+    location,
+    rent,
+  } = flat;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -19,10 +28,13 @@ const FlatCard = ({ flat }: { flat: any }) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          Location:{location}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Price: {rent}
         </Typography>
       </CardContent>
       <CardActions>

@@ -18,7 +18,7 @@ const SingleFlat = async ({ params }: { params: any }) => {
       <h1>{flatId}</h1>
       <PhotoGallery></PhotoGallery>
       <RelatedFlats></RelatedFlats>
-      {/* <Content flatDetails={data?.result}></Content> */}
+      <Content flatDetails={data?.data}></Content>
     </Container>
   );
 };

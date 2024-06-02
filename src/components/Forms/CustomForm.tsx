@@ -35,7 +35,6 @@ const CustomForm = ({
   const { handleSubmit, reset } = methods;
 
   const submit: SubmitHandler<FieldValues> = (data) => {
-    console.log("from submit", data);
     onSubmit(data);
     // reset();
   };

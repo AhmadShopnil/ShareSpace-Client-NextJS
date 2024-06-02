@@ -1,17 +1,16 @@
 "use client";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
-
 import Link from "next/link";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-
 import { Router } from "next/router";
 import { useRouter } from "next/navigation";
-
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import CustomForm from "@/components/Forms/CustomForm";
 import CustomInput from "@/components/Forms/CustomInput";
+import { userLogin } from "@/services/actions/userLogin";
+import { saveUserInfo } from "@/services/auth.Services";
 
 export const validationSchema = z.object({
   email: z.string().email("Please enter a valid email address!"),
@@ -23,20 +22,20 @@ const LoginPage = () => {
   const [error, setError] = useState("");
 
   const handleLogin = async (values: FieldValues) => {
-    console.log(values);
-    // try {
-    //   const res = await userLogin(values);
-    //   if (res?.data?.accessToken) {
-    //     toast.success(res?.message);
-    //     storeUserInfo({ accessToken: res?.data?.accessToken });
-    //     router.push("/dashboard");
-    //   } else {
-    //     setError(res.message);
-    //     // console.log(res);
-    //   }
-    // } catch (err: any) {
-    //   console.error(err.message);
-    // }
+    try {
+      const res = await userLogin(values);
+      console.log(res?.data);
+      if (res?.data?.accessToken) {
+        // log in user by set user token in local storage
+        saveUserInfo({ accessToken: res?.data?.accessToken });
+        router.push("/");
+      } else {
+        setError(res.message);
+        // console.log(res);
+      }
+    } catch (err: any) {
+      console.error(err.message);
+    }
   };
 
   return (
