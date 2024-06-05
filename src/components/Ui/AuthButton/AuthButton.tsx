@@ -18,7 +18,9 @@ const AuthButton = () => {
   return (
     <Box sx={{ display: "flex" }}>
       {userInfo?.userId ? (
-        <Button onClick={handleLogout}>Logout</Button>
+        <Button sx={{ marginRight: 5 }} onClick={handleLogout}>
+          Logout
+        </Button>
       ) : (
         <Box>
           <ButtonGroup
@@ -26,7 +28,7 @@ const AuthButton = () => {
             color="secondary"
             aria-label="Basic button group"
           >
-            <Button sx={{ marginRight: 5 }} component={Link} href="/login">
+            <Button component={Link} href="/login">
               Login
             </Button>
             <Button component={Link} href="/register">

@@ -4,7 +4,7 @@ const flatApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     postFlat: build.mutation({
       query: (data) => ({
-        url: "/specialties",
+        url: "/flats",
         method: "POST",
         contentType: "multipart/form-data",
         data,
@@ -14,7 +14,7 @@ const flatApi = baseApi.injectEndpoints({
 
     getAllFlats: build.query({
       query: () => ({
-        url: "/specialties",
+        url: "/flats",
         method: "GET",
       }),
       providesTags: [],
@@ -22,7 +22,7 @@ const flatApi = baseApi.injectEndpoints({
 
     deleteFlat: build.mutation({
       query: (id) => ({
-        url: `/specialties/${id}`,
+        url: `/flats/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: [],

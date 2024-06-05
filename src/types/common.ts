@@ -1,3 +1,5 @@
+import { USER_ROLE } from "@/contants/role";
+
 export type IMeta = {
   page: number;
   limit: number;
@@ -33,6 +35,14 @@ export type TFlat = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type TUserRegistration = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+export type UserRole = keyof typeof USER_ROLE;
 
 // id: '7ca149cc-cd5e-4a5c-b777-1eb97061344a',
 // squareFeet: 1050,
